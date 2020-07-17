@@ -8,8 +8,6 @@ import logger from 'redux-logger';
 import { rootReducer } from './store/reducers';
 //Component
 import App from './components/App';
-//Style
-import './index.css';
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger))
 
