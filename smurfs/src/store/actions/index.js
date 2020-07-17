@@ -18,3 +18,35 @@ export const apiCall = (props) => {
       });
   };
 };
+
+export const API_POST_START = 'API_POST_START';
+export const API_POST_SUCCESS = 'API_POST_SUCCESS';
+export const API_POST_FAILURE = 'API_POST_FAILURE';
+
+export const apiPost = (props) => {
+  return dispatch => {
+    dispatch({ type: API_POST_START });
+    axios
+      .post('http://localhost:3333/smurfs', props)
+      .then(res => {
+        dispatch({ type: API_POST_START })
+        dispatch({
+          type: API_POST_SUCCESS,
+          payload: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({ type: API_POST_FAILURE })
+      });
+  };
+};
+
+export const ADD_SMURF = 'ADD_SMURF';
+
+export function addSmurf(newSmurf) {
+  console.log('action', newSmurf);
+  return {
+    type: ADD_SMURF,
+    payload: newSmurf
+  }
+}

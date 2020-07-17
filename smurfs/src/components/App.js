@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import AddSmurfForm from './AddSmurfForm';
 import SmurfList from './SmurfList';
 
 class App extends Component {
@@ -7,6 +9,9 @@ class App extends Component {
       <div className='uk-section uk-section-small'>
         <div className='uk-flex uk-flex-center uk-margin'>
           <img src='logo512.png' alt='logo' className='uk-width-small' />
+        </div>
+        <div>
+          <AddSmurfForm />
         </div>
         <div className='uk-section'>
           <div className='uk-container uk-flex uk-flex-center uk-flex-wrap'>
