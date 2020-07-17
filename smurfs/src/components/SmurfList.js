@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   apiCall,
-  apiDelete
-} from './../store/actions'
+  apiDelete,
+  setProfile
+} from './../store/actions';
 
 import SmurfCard from './SmurfCard';
 
@@ -25,6 +26,7 @@ const SmurfList = (props) => {
             key={smurf.id}
             smurf={smurf}
             delete={() => props.apiDelete(smurf.id)}
+            profile = {() => props.setProfile(smurf)}
           />
         )
       })}
@@ -42,11 +44,12 @@ const mapStateToProps = state => {
     isLoading: state.isLoading,
     smurfs: state.smurfs,
     getError: state.getError,
+    smurfProfile: state.smurfProfile
   };
 };
 
 
 export default connect(
   mapStateToProps,
-  { apiCall , apiDelete}
+  { apiCall , apiDelete, setProfile}
 )(SmurfList);

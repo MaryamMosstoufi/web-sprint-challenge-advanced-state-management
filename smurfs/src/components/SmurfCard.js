@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setProfile } from './../store/actions';
 
 const SmurfCard = (props) => {
   const smurfLink = '/profile/' + props.smurf.id;
@@ -11,13 +12,19 @@ const SmurfCard = (props) => {
         Name: {props.smurf.name} <br />
         Age: {props.smurf.age} <br />
         Height: {props.smurf.height}cm
-        <div className='uk-float-right'>
-          <a className='uk-hidden-hover' onClick={props.delete} data-uk-icon="icon: trash"></a>
-          <Link to={smurfLink} className='uk-hidden-hover uk-margin-left' data-uk-icon="icon: link"></Link>
-        </div>
+        
+        <Link to={smurfLink} onClick={props.profile} className='uk-hidden-hover uk-margin-left uk-float-right' data-uk-icon="icon: link"></Link>
+        <a className='uk-hidden-hover uk-float-right' onClick={props.delete} data-uk-icon="icon: trash"></a>
       </div>
     </div>
   )
 }
 
-export default connect()(SmurfCard);
+const mapStateToProps = state => {
+  return {
+  };
+};
+
+export default connect(
+  mapStateToProps,
+)(SmurfCard);

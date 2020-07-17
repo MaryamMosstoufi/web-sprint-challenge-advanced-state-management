@@ -8,6 +8,7 @@ import {
   API_DELETE_START,
   API_DELETE_SUCCESS,
   API_DELETE_FAILURE,
+  SET_PROFILE
 } from './../actions';
 
 export const initialState = {
@@ -16,6 +17,12 @@ export const initialState = {
     name: '',
     age: null,
     height: '',
+  },
+  smurfProfile: {
+    name: '',
+    age: null,
+    height: '',
+    id:''
   }
 };
 
@@ -75,6 +82,11 @@ export const rootReducer = (state = initialState, action) => {
         isDeleting: false,
         deleteError: action.payload
       };
+    case SET_PROFILE:
+      return {
+        ...state,
+        smurfProfile: action.payload
+      }
     default:
       return state;
   }

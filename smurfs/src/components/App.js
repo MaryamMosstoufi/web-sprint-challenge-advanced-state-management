@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,10 +9,10 @@ import {
 import AddSmurfForm from './AddSmurfForm';
 import SmurfList from './SmurfList';
 import ProfilePage from './ProfilePage';
+import {setProfile} from './../store/actions';
 
 
-class App extends Component {
-  render() {
+const App = (props) => {
     return (
       <Router>
         <div className='uk-section uk-section-small'>
@@ -30,14 +31,21 @@ class App extends Component {
               </div>
             </Route>
             <Route path="/profile/">
-              <ProfilePage />
+              <ProfilePage/>
             </Route>
           </Switch>
           
         </div>
       </Router>
     );
-  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    smurfProfile: state.smurfProfile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+)(App);

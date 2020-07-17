@@ -65,3 +65,12 @@ export const apiDelete = (props) => {
   }
 }
 
+export const SET_PROFILE = 'SET_PROFILE';
+
+export function setProfile(smurfProfile) {
+  console.log('action', smurfProfile);
+  return {
+    type: SET_PROFILE,
+    payload: smurfProfile
+  }
+}
