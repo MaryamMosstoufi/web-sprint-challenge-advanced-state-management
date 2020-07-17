@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { apiCall } from './../store/actions'
+import {
+  apiCall,
+  apiDelete
+} from './../store/actions'
 
 import SmurfCard from './SmurfCard';
 
@@ -21,6 +24,7 @@ const SmurfList = (props) => {
           <SmurfCard
             key={smurf.id}
             smurf={smurf}
+            delete={() => props.apiDelete(smurf.id)}
           />
         )
       })}
@@ -34,6 +38,7 @@ const SmurfList = (props) => {
 
 const mapStateToProps = state => {
   return {
+    smurfs: state.smurfs,
     isLoading: state.isLoading,
     smurfs: state.smurfs,
     getError: state.getError,
@@ -43,5 +48,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { apiCall }
+  { apiCall , apiDelete}
 )(SmurfList);

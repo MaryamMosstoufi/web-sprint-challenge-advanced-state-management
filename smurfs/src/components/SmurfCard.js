@@ -8,7 +8,7 @@ const SmurfCard = (props) => {
         Name: {props.smurf.name} <br />
         Age: {props.smurf.age} <br />
         Height: {props.smurf.height}
-        <a className='uk-float-right uk-hidden-hover' onClick={props.deleteSmurf} data-uk-icon="icon: trash"></a>
+        <a className='uk-float-right uk-hidden-hover' onClick={props.delete} data-uk-icon="icon: trash"></a>
       </div>
     </div>
   )

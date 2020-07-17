@@ -5,6 +5,9 @@ import {
   API_POST_START,
   API_POST_SUCCESS,
   API_POST_FAILURE,
+  API_DELETE_START,
+  API_DELETE_SUCCESS,
+  API_DELETE_FAILURE,
 } from './../actions';
 
 export const initialState = {
@@ -53,6 +56,24 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         isPosting: false,
         postError: action.payload
+      };
+    case API_DELETE_START:
+      return {
+        ...state,
+        isDeleting: true
+      };
+    case API_DELETE_SUCCESS:
+      return {
+        ...state,
+        isDeleting: false,
+        smurfs: action.payload,
+        deleteError: ''
+      };
+    case API_DELETE_FAILURE:
+      return {
+        ...state,
+        isDeleting: false,
+        deleteError: action.payload
       };
     default:
       return state;
