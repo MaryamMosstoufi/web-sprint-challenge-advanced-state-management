@@ -8,7 +8,7 @@ const SmurfList = (props) => {
 
   useEffect(() => {
     props.apiCall();
-  }, [])
+  },[])
   return (
     // map over api res.data and return SmurfCard for each
     <div className='uk-container uk-flex'>
@@ -35,10 +35,11 @@ const SmurfList = (props) => {
 const mapStateToProps = state => {
   return {
     isLoading: state.isLoading,
-    results: state.results,
-    error: state.error
+    smurfs: state.results,
+    getError: state.getError,
   };
 };
+
 
 export default connect(
   mapStateToProps,

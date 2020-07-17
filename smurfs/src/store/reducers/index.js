@@ -5,7 +5,8 @@ import {
 } from './../actions';
 
 export const initialState = {
-  
+  smurfs: [],
+
 };
 
 
@@ -20,14 +21,14 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        results: action.payload,
-        error: ''
+        smurfs: action.payload,
+        getError: ''
       };
     case API_CALL_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload
+        getError: action.payload
       };
     default:
       return state;

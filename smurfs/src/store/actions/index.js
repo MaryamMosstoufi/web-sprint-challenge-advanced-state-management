@@ -11,7 +11,7 @@ export const apiCall = (props) => {
       .get('http://localhost:3333/smurfs')
       .then(res => {
         dispatch({ type: API_CALL_SUCCESS, payload: res.data });
-        console.log('Get Response', res)
+        //console.log('Get Response', res)
       })
       .catch(err => {
         dispatch({ type: API_CALL_FAILURE, payload: err.message });
