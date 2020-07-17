@@ -41,12 +41,3 @@ export const apiPost = (props) => {
   };
 };
 
-export const ADD_SMURF = 'ADD_SMURF';
-
-export function addSmurf(newSmurf) {
-  console.log('action', newSmurf);
-  return {
-    type: ADD_SMURF,
-    payload: newSmurf
-  }
-}

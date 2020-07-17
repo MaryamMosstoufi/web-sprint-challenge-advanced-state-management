@@ -5,15 +5,14 @@ import {
   API_POST_START,
   API_POST_SUCCESS,
   API_POST_FAILURE,
-  ADD_SMURF
 } from './../actions';
 
 export const initialState = {
   smurfs: [],
   newSmurf: {
-    smurfName: '',
-    smurfAge: null,
-    smurfHeight: '',
+    name: '',
+    age: null,
+    height: '',
   }
 };
 
@@ -54,11 +53,6 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         isPosting: false,
         postError: action.payload
-      };
-    case ADD_SMURF:
-      return {
-        ...state,
-        newSmurf: action.payload
       };
     default:
       return state;

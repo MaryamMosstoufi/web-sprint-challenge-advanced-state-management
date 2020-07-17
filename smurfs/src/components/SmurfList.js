@@ -11,7 +11,7 @@ const SmurfList = (props) => {
   },[])
   return (
     // map over api res.data and return SmurfCard for each
-    <div className='uk-container uk-flex'>
+    <div className='uk-container uk-flex uk-flex-wrap uk-flex-center'>
       {props.isLoading &&
         <h4>Loading...</h4>
       }

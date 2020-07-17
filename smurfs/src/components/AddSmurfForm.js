@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import {
-  addSmurf,
-  apiPost
-} from './../store/actions';
+import { apiPost } from './../store/actions';
 
 const Form = (props) => {
-  const [smurfName, setSmurfName] = useState('');
-  const [smurfAge, setSmurfAge] = useState(null);
-  const [smurfHeight, setSmurfHeight] = useState('');
   const [newSmurf, setNewSmurf] = useState({})
 
   const handleChange = (e) => {
@@ -20,16 +14,13 @@ const Form = (props) => {
   }
   function addNewSmurf(e) {
     e.preventDefault();
-    //console.log('newSmurf: ', newSmurf)
     props.apiPost(newSmurf)
   }
-  // console.log('NEW SMURF', newSmurf)
-  // console.log(`{"name":${newSmurf.name},"age":${newSmurf.age},"height":"${props.height}cm","id":${Date.now()}}`)
+  
   return (
     <div className='uk-flex uk-flex-center'>
       <form
         className='uk-width-medium'
-        //onSubmit={() => props.apiPost(`{"name":"${newSmurf.smurfName}","age":${newSmurf.smurfAge},"height":"${newSmurf.smurfHeight}cm","id":${Date.now()}}`)}
         onSubmit={(e) => addNewSmurf(e)}
       >
         <div className='uk-margin'>
@@ -52,7 +43,7 @@ const Form = (props) => {
             required
           />
           <input
-            type='text'
+            type='number'
             name='height'
             className='uk-input uk-width-1-3 uk-float-right'
             placeholder='Height *'
@@ -83,6 +74,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { apiPost, addSmurf }
+  { apiPost }
 )(Form);
 
