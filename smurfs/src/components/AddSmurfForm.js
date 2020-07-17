@@ -37,6 +37,7 @@ const Form = (props) => {
           <input
             type='number'
             name='age'
+            min='0'
             className='uk-input uk-width-1-3'
             placeholder='Age *'
             onChange={handleChange}
@@ -45,6 +46,7 @@ const Form = (props) => {
           <input
             type='number'
             name='height'
+            min='0'
             className='uk-input uk-width-1-3 uk-float-right'
             placeholder='Height *'
             onChange={handleChange}
