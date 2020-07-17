@@ -6,7 +6,6 @@ import {
 
 export const initialState = {
   smurfs: [],
-
 };
 
 

@@ -16,7 +16,7 @@ const SmurfList = (props) => {
         <h4>Loading...</h4>
       }
 
-      {props.results && props.results.map(smurf => {
+      {props.smurfs && props.smurfs.map(smurf => {
         return (
           <SmurfCard
             key={smurf.id}
@@ -35,7 +35,7 @@ const SmurfList = (props) => {
 const mapStateToProps = state => {
   return {
     isLoading: state.isLoading,
-    smurfs: state.results,
+    smurfs: state.smurfs,
     getError: state.getError,
   };
 };
