@@ -1,16 +1,51 @@
-import React, { Component } from "react";
-import "./App.css";
-class App extends Component {
-  render() {
+import React from 'react';
+import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import AddSmurfForm from './AddSmurfForm';
+import SmurfList from './SmurfList';
+import ProfilePage from './ProfilePage';
+import {setProfile} from './../store/actions';
+
+
+const App = (props) => {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
+      <Router>
+        <div className='uk-section uk-section-small'>
+          <div className='uk-flex uk-flex-center uk-margin'>
+            <img src='logo512.png' alt='logo' className='uk-width-small' />
+          </div>
+          <Switch>
+            <Route exact path="/">
+              <div>
+                <AddSmurfForm />
+              </div>
+              <div className='uk-section'>
+                <div className='uk-container uk-flex uk-flex-center uk-flex-wrap'>
+                  <SmurfList />
+                </div>
+              </div>
+            </Route>
+            <Route path="/profile/">
+              <ProfilePage/>
+            </Route>
+          </Switch>
+          
+        </div>
+      </Router>
     );
-  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    smurfProfile: state.smurfProfile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+)(App);
